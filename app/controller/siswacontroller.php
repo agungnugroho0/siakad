@@ -41,24 +41,24 @@ class siswacontroller
             ];
 
             // jika upload foto
-            // if (isset($files['foto']) && $files['foto']['error'] === 0) {
-            //     $ekstensi = pathinfo($files['foto']['name'], PATHINFO_EXTENSION);
-            //     $fotoName = strtolower($post['nama_lengkap']) . '.' . $ekstensi;
+            if (isset($files['foto']) && $files['foto']['error'] === 0) {
+                $ekstensi = pathinfo($files['foto']['name'], PATHINFO_EXTENSION);
+                $fotoName = strtolower($post['nama_lengkap']) . '.' . $ekstensi;
                 
-            //     $targetDir  =  '/mnt/nas/photos/';
-            //     $targetPath = $targetDir . $fotoName;
+                $targetDir  =  '/mnt/nas/photos/';
+                $targetPath = $targetDir . $fotoName;
 
-            //     // Cek apakah path folder-nya ada
-            //     if (!is_dir($targetDir)) {
-            //         mkdir($targetDir, 0777, true); // bikin folder kalau belum ada
-            //     }
+                // Cek apakah path folder-nya ada
+                if (!is_dir($targetDir)) {
+                    mkdir($targetDir, 0777, true); // bikin folder kalau belum ada
+                }
 
-            //     if (!move_uploaded_file($files['foto']['tmp_name'], $targetPath)) {
-            //         throw new \Exception("Gagal upload foto ke $targetPath");
-            //     }
-            //     $data['foto'] = $fotoName;
+                if (!move_uploaded_file($files['foto']['tmp_name'], $targetPath)) {
+                    throw new \Exception("Gagal upload foto ke $targetPath");
+                }
+                $data['foto'] = $fotoName;
 
-            // }
+            }
 
             $result = $this->db->insertsiswa($data);
             if ($result === false) {
