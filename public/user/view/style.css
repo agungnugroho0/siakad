@@ -1,0 +1,15 @@
+.animeku {
+    animation: pulsa 4s ease infinite;
+    }
+
+    @keyframes pulsa {
+    0% {
+        background-size: 100% 100%;
+    }
+    50% {
+        background-size: 200% 200%;
+    }
+    100% {
+        background-size: 100% 100%;
+    }
+}
