@@ -26,35 +26,62 @@ class siswa{
     }
 
     public function update_biodata_model($data){
-        $query = "UPDATE siswa SET 
-            nama = :nama,
-            panggilan = :panggilan,
-            tempat_lhr = :tempat_lhr,
-            gender = :gender,
-            tgl = :tgl,
-            provinsi = :provinsi,
-            kabupaten = :kabupaten,
-            kecamatan = :kecamatan,
-            kelurahan = :kelurahan,
-            rt = :rt,
-            rw = :rw,
-            wa = :wa,
-            agama = :agama,
-            status = :status,
-            darah = :darah,
-            bb = :bb,
-            tb = :tb,
-            merokok = :merokok,
-            alkohol = :alkohol,
-            tangan = :tangan,
-            no_rumah = :no_rumah
-            foto = :foto
-            WHERE nis = :nis";
-            
-        $stmt = $this->db->prepare($query);
-        foreach ($data as $key => $val) {
-            $stmt->bindValue(":$key", $val);
+         foreach ($data as $key => $value) {
+            if ($key !== 'foto') {
+                $data[$key] = strtoupper($value);
+            }
         }
+        $query = "UPDATE siswa SET
+        nama = :nama_lengkap,
+        panggilan = :panggilan,
+        id_kelas = :id_kelas,
+        tempat_lhr = :tempat_lahir,
+        gender = :gender,
+        tgl = :tgl,
+        provinsi = :provinsi,
+        kabupaten = :kab,
+        kecamatan = :kec,
+        rt = :rt,
+        rw = :rw,
+        wa = :wa,
+        agama = :agama,
+        status = :status,
+        darah = :darah,
+        bb = :bb,
+        tb = :tb,
+        merokok = :merokok,
+        alkohol = :alkohol,
+        tangan = :tangan,
+        no_rumah = :no_rumah
+        ".(!empty($data['foto']) ? ", foto = :foto": "")." WHERE nis = :nis";
+        $query = preg_replace('/,(\s*WHERE)/', ' $1', $query);
+
+        $stmt = $this->db->prepare($query);
+
+    // Binding semua data
+        $stmt->bindParam(':nama_lengkap', $data['nama_lengkap']);
+        $stmt->bindParam(':panggilan', $data['panggilan']);
+        $stmt->bindParam(':id_kelas', $data['id_kelas']);
+        $stmt->bindParam(':tempat_lahir', $data['tempat_lahir']);
+        $stmt->bindParam(':gender', $data['gender']);
+        $stmt->bindParam(':tgl', $data['tgl']);
+        $stmt->bindParam(':provinsi', $data['provinsi']);
+        $stmt->bindParam(':kab', $data['kab']);
+        $stmt->bindParam(':kec', $data['kec']);
+        $stmt->bindParam(':rt', $data['rt']);
+        $stmt->bindParam(':rw', $data['rw']);
+        $stmt->bindParam(':wa', $data['wa']);
+        $stmt->bindParam(':agama', $data['agama']);
+        $stmt->bindParam(':status', $data['status']);
+        $stmt->bindParam(':darah', $data['darah']);
+        $stmt->bindParam(':bb', $data['bb']);
+        $stmt->bindParam(':tb', $data['tb']);
+        $stmt->bindParam(':merokok', $data['merokok']);
+        $stmt->bindParam(':alkohol', $data['alkohol']);
+        $stmt->bindParam(':tangan', $data['tangan']);
+        $stmt->bindParam(':no_rumah', $data['no_rumah']);
+        if (!empty($data['foto'])) $stmt->bindParam(':foto', $data['foto']);
+        $stmt->bindParam(':nis', $data['nis']);
         return $stmt->execute();
     }
 
