@@ -3,7 +3,7 @@
     let html = await res.text();
     document.getElementById("tab-content").innerHTML = html;
       // load modul JS khusus halaman
-    console.log("/public/javascript/" + page + ".js");
+    console.log("/a/javascript/" + page + ".js");
     loadScript("/public/javascript/" + page + ".js");
   }
 
