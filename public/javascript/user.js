@@ -33,3 +33,4 @@
 
   // load default (biodata)
   loadPage("biodata");
+  console.log("user.js loaded");

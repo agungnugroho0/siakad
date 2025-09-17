@@ -115,8 +115,32 @@ class siswacontroller
             'alkohol'       => strtoupper($post['alkohol'] ?? ''),
             'tangan'        => strtoupper($post['tangan'] ?? ''),
             'no_rumah'      => $post['no_rumah'] ?? '',
-            // 'foto' => null,
+            'foto' => null,
             ];
+            if (isset($files['foto']) && $files['foto']['error'] === 0) {
+                $ekstensi = pathinfo($files['foto']['name'], PATHINFO_EXTENSION);
+                $fotoName = strtolower($post['nama']) . '.' . $ekstensi;
+                $lama = findById('siswa','nis',$post['nis']);
+                if (!empty($lama['foto'])) {
+                    $oldPath = '/mnt/nas/photos/' . $lama['foto'];
+                    if (file_exists($oldPath)) {
+                        unlink($oldPath);
+                    }
+                }
+                $targetDir  =  '/mnt/nas/photos/';
+                $targetPath = $targetDir . $fotoName;
+
+                // Cek apakah path folder-nya ada
+                if (!is_dir($targetDir)) {
+                    mkdir($targetDir, 0777, true); // bikin folder kalau belum ada
+                }
+
+                if (!move_uploaded_file($files['foto']['tmp_name'], $targetPath)) {
+                    throw new \Exception("Gagal upload foto ke $targetPath");
+                }
+                $data['foto'] = $fotoName;
+
+            }
             $result = $this->db->update_biodata_model($data);
             return $result;
         }catch( \Throwable $e){

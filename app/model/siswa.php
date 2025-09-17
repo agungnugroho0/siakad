@@ -48,7 +48,7 @@ class siswa{
             alkohol = :alkohol,
             tangan = :tangan,
             no_rumah = :no_rumah
-            -- foto = :foto
+            foto = :foto
             WHERE nis = :nis";
             
         $stmt = $this->db->prepare($query);

@@ -8,7 +8,7 @@ $siswa = (new siswacontroller())->tampilsiswacontroller($nis);
 <body>
     <a href="#" id="edit_btn" class="ring-1 focus:ring-green-700 text-red-800 px-2 rounded">Edit Data Diri</a>
     <div class="flex gap-2 sm:flex-row flex-col">
-        <img class="rounded-lg max-w-48 min-w-10 self-center" alt="profil siswa" src="../image/photos/<?= $siswa['foto']?>"></img>
+        <img class="rounded-lg max-w-48 min-w-10 self-center" alt="profil siswa" src="../image/nas_photos/<?= $siswa['foto']?>"></img>
         <content class="grid grid-cols-2 md:grid-cols-4">
                 <?php foreach ($siswa as $key => $value): ?>
                         <p class="font-normal text-gray-600 pl-3"><?= strtoupper(str_replace('_', ' ', $key)) ?></p>
