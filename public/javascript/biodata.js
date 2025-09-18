@@ -41,7 +41,7 @@ $(document).off("change", "#foto").on("change", "#foto", (e) => {
       $modal.addClass("hidden").removeClass("block");
       loadPage("biodata", initbiodata);
     } else {
-      alert("Gagal update data!");
+      alert("data gagal diperbarui: " + data.message);
     }
   });
 }
