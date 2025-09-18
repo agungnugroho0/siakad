@@ -144,8 +144,12 @@ class siswacontroller
             $result = $this->db->update_biodata_model($data);
             return $result;
         }catch( \Throwable $e){
-            echo "error" . $e->getMessage();;
-                exit;
+            header('Content-Type: application/json');
+            echo json_encode([
+                'success' => false,
+                'message' => $e->getMessage()
+            ]);
+            exit;
         }
     }
 
