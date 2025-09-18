@@ -31,7 +31,7 @@ function initsekolah() {
       $modal.addClass("hidden").removeClass("block");
       loadPage("pendidikan", initsekolah);
     } else {
-      alert("Gagal tambah data!");
+     alert("data gagal diperbarui: " + data.message);
     }
   });
 }

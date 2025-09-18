@@ -31,7 +31,7 @@ function initkeluarga() {
       $modal.addClass("hidden").removeClass("block");
       loadPage("keluarga", initkeluarga);
     } else {
-      alert("Gagal tambah data!");
+      alert("data gagal diperbarui: " + data.message);
     }
   });
 }
