@@ -59,7 +59,7 @@ class siswa{
         $stmt = $this->db->prepare($query);
 
     // Binding semua data
-        $stmt->bindParam(':nama_lengkap', $data['nama_lengkap']);
+        $stmt->bindParam(':nama_lengkap', $data['nama']);
         $stmt->bindParam(':panggilan', $data['panggilan']);
         $stmt->bindParam(':id_kelas', $data['id_kelas']);
         $stmt->bindParam(':tempat_lahir', $data['tempat_lahir']);
