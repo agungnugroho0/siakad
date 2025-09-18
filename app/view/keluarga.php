@@ -8,7 +8,7 @@ $siswa = (new siswacontroller())->tampilkeluargacontroller($nis);
 ?>
 <a href="#" id="tambah_btn" class="ring-1 focus:ring-green-700 text-red-800 px-2 rounded">+ Tambah Keluarga</a>
 
-<content class="grid grid-cols-1 md:grid-cols-4 mt-2">
+<content class="grid grid-cols-1 md:grid-cols-3 mt-2">
             <?php foreach ($siswa as $isi): ?>
                 <div class='m-2 p-3 border rounded shadow'>
                     <p class="font-semibold text-gray-800"><?= $isi['hubungan'] ?></p>

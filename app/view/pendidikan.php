@@ -8,7 +8,7 @@ $siswa = (new siswacontroller())->tampilpendidikan($nis);
 ?>
 <a href="#" id="tambah_btn" class="ring-1 focus:ring-green-700 text-red-800 px-2 rounded">+ Tambah Pendidikan</a>
 
-<content class="grid grid-cols-1 md:grid-cols-4 mt-2">
+<content class="grid grid-cols-1 md:grid-cols-2 mt-2">
             <?php foreach ($siswa as $isi): ?>
                 <div class='m-2 p-3 border rounded shadow'>
                     <p class="font-normal text-gray-600 pl-3">nama <?= strtoupper(str_replace('_', ' ', $isi['sekolah'])) ?></p>
@@ -35,15 +35,15 @@ $siswa = (new siswacontroller())->tampilpendidikan($nis);
                 </div>
                 <div class="mb-4">
                     <label for="nama" class="block text-gray-700 font-semibold mb-2">Nama Sekolah</label>
-                    <input type="text" id="nama" name="nama" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Masukkan Nama Sekolah">
+                    <input type="text" id="nama" name="nama" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Masukkan Nama Sekolah" required>
                 </div>
                 <div class="mb-4">
                     <label for="masuk" class="block text-gray-700 font-semibold mb-2">Tahun Masuk</label>
-                    <input type="date" id="masuk" name="masuk" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <input type="date" id="masuk" name="masuk" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                 </div>
                 <div class="mb-4">
                     <label for="lulus" class="block text-gray-700 font-semibold mb-2">Tahun Lulus</label>
-                    <input type="date" id="lulus" name="lulus" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <input type="date" id="lulus" name="lulus" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                 </div>
                 <div class="mb-4">
                     <label for="jurusan" class="block text-gray-700 font-semibold mb-2">Jurusan</label>
