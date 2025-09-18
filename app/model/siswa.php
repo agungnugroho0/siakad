@@ -34,7 +34,7 @@ class siswa{
         $query = "UPDATE siswa SET
         nama = :nama_lengkap,
         panggilan = :panggilan,
-        id_kelas = :id_kelas,
+        -- id_kelas = :id_kelas,
         tempat_lhr = :tempat_lahir,
         gender = :gender,
         tgl = :tgl,
@@ -61,7 +61,7 @@ class siswa{
     // Binding semua data
         $stmt->bindParam(':nama_lengkap', $data['nama']);
         $stmt->bindParam(':panggilan', $data['panggilan']);
-        $stmt->bindParam(':id_kelas', $data['id_kelas']);
+        // $stmt->bindParam(':id_kelas', $data['id_kelas']);
         $stmt->bindParam(':tempat_lahir', $data['tempat_lahir']);
         $stmt->bindParam(':gender', $data['gender']);
         $stmt->bindParam(':tgl', $data['tgl']);
