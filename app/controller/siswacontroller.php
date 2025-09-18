@@ -115,7 +115,6 @@ class siswacontroller
             'alkohol'       => strtoupper($post['alkohol'] ?? ''),
             'tangan'        => strtoupper($post['tangan'] ?? ''),
             'no_rumah'      => $post['no_rumah'] ?? '',
-            'foto' => null,
             ];
             if (isset($files['foto']) && $files['foto']['error'] === 0) {
                 $ekstensi = pathinfo($files['foto']['name'], PATHINFO_EXTENSION);
