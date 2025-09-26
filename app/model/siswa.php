@@ -41,6 +41,7 @@ class siswa{
         provinsi = :provinsi,
         kabupaten = :kab,
         kecamatan = :kec,
+        kelurahan = :kelurahan,
         rt = :rt,
         rw = :rw,
         wa = :wa,
@@ -66,8 +67,9 @@ class siswa{
         $stmt->bindParam(':gender', $data['gender']);
         $stmt->bindParam(':tgl', $data['tgl']);
         $stmt->bindParam(':provinsi', $data['provinsi']);
-        $stmt->bindParam(':kab', $data['kab']);
-        $stmt->bindParam(':kec', $data['kec']);
+        $stmt->bindParam(':kab', $data['kabupaten']);
+        $stmt->bindParam(':kec', $data['kecamatan']);
+        $stmt->bindParam(':kelurahan', $data['kelurahan']);
         $stmt->bindParam(':rt', $data['rt']);
         $stmt->bindParam(':rw', $data['rw']);
         $stmt->bindParam(':wa', $data['wa']);
