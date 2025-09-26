@@ -38,8 +38,8 @@ $crsf = authentication::__csrfToken();
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-[#09122C] via-[#872341] to-[#BE3144] bg-cover h-screen animate-pulse flex items-center justify-center">
-    <div class="bg-white mx-auto min-w-sm rounded-md p-2">
+<body class="bg-gradient-to-br from-[#09122C] via-[#872341] to-[#BE3144] bg-cover h-screen animate-pulse sm:flex items-center justify-center">
+    <div class="bg-white mx-auto w-screen sm:max-w-sm rounded-md p-2">
         <form action="/api/api_login.php" method="post" class="my-5">
             <div class="text-center ">
                 <img src="/image/logo.png" alt="logo" class="w-20 h-20 mx-auto">
