@@ -63,7 +63,7 @@ class siswa{
         $stmt->bindParam(':nama_lengkap', $data['nama']);
         $stmt->bindParam(':panggilan', $data['panggilan']);
         // $stmt->bindParam(':id_kelas', $data['id_kelas']);
-        $stmt->bindParam(':tempat_lahir', $data['tempat_lahir']);
+        $stmt->bindParam(':tempat_lahir', $data['tempat_lhr']);
         $stmt->bindParam(':gender', $data['gender']);
         $stmt->bindParam(':tgl', $data['tgl']);
         $stmt->bindParam(':provinsi', $data['provinsi']);
