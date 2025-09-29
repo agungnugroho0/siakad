@@ -38,5 +38,5 @@ authentication::check();
             <!-- isi konten -->
         </div>
 </body>
-<script src="../javascript/user2.js"></script>
+<script src="/public/javascript/user2.js"></script>
 </html>
